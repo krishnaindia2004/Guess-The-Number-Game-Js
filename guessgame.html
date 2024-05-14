@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess Number</title>
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(200, 152, 223);
+        }
+
+        h1 {
+            background: white;
+            box-shadow: 3px 3px 5px black;
+            padding: 10px;
+            border-radius: 20px;
+        }
+
+        input {
+            margin: 0px 0px 10px;
+            padding: 8px;
+            border-radius: 20px;
+        }
+
+        button {
+            width: 70px;
+            padding: 5px;
+            border-radius: 20px;
+            background: rebeccapurple;
+            color: white;
+        }
+        /* .changecolor{
+            width: 70px;
+            padding: 5px;
+            border-radius: 20px;
+            background: rgb(89, 89, 89);
+            color: white;
+        } */
+        #pts {
+            border: 1px dashed;
+            padding: 10px;
+            border-radius: 20px;
+        }
+
+        #Status {
+            font-size: larger;
+            padding: 5px;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>
+        Guess the Number!
+    </h1>
+    <input type="number" id="inputBox">
+    <button onclick="res()" id="btn">
+        Check
+    </button>
+    <p id="pts">
+        Your Score: 10
+    </p>
+    <p id="Status">
+
+    </p>
+</body>
+<script>
+
+    var n = Math.random()
+    n = Math.floor(n * 10 + 1)
+    console.log(n);
+    var dis = document.getElementById("Status")
+    var pts = document.getElementById("pts")
+    var Btn=document.getElementById("btn")
+    var score = 10
+    function res() {
+        // Btn.setAttribute("class","changecolor")
+        var inputVal = document.getElementById("inputBox").value
+        if (inputVal == n) {
+            console.log("Right");
+
+            dis.textContent = "You Won!"
+            pts.textContent = "Your Score: " + score
+
+        }
+        else {
+            dis.textContent = "You're Wrong!"
+            if (score > 0) {
+                score = score - 1
+                pts.textContent = "Your Score: " + score
+            }
+            else {
+                score = 0
+            }
+        }
+    }
+</script>
+
+</html>
